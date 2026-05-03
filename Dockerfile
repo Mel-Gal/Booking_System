@@ -17,4 +17,4 @@ COPY . /app
 RUN composer install --optimize-autoloader --no-dev
 
 # Start the Laravel server on the port Render gives us
-CMD php artisan serve --host=0.0.0.0 --port=$PORT
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT
